@@ -31,28 +31,5 @@ suspend fun loadContributorsChannels(
             allUsers = (allUsers + users).aggregate()
             updateResults(allUsers, it == repos.lastIndex)
         }
-//
-//        val deferreds: List<Deferred<List<User>>> = repos.map { repo ->
-//            async {
-//                log("starting loading for ${repo.name}")
-//                delay(3000)
-//                service.getRepoContributors(req.org, repo.name)
-//                    .also { logUsers(repo, it) }
-//                    .bodyList()
-//            }
-//        }
-//
-//        deferreds.awaitAll().flatten().aggregate()
-
-//
-//        var allUsers = emptyList<User>()
-//        for ((index, repo) in repos.withIndex()) {
-//            val users = service.getRepoContributors(req.org, repo.name)
-//                .also { logUsers(repo, it) }
-//                .bodyList()
-//
-//            allUsers = (allUsers + users).aggregate()
-//            updateResults(allUsers, index == repos.lastIndex)
-//        }
     }
 }
